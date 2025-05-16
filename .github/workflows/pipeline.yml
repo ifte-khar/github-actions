@@ -15,25 +15,28 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-        #Checkout
+      # Checkout code
       - name: Fetch code
         uses: actions/checkout@v4
 
-        #Install packages
-      - name: Install dependencices
+      # Install dependencies
+      - name: Install dependencies
         run: npm install
 
-        #Install playwrighht
+      # Install Playwright
       - name: Install Playwright
         run: npx playwright install
 
-        #Run tests
+      # Run tests
       - name: Run tests
-        run: npm run run-tests        
+        env:
+            TEST_USERNAME: ${{ secrets.TEST_USERNAME}}
+            TEST_PASSWORD: ${{ secrets.TEST_PASSWORD}}
+        run: npm run run-tests
 
-        #Publish Results
+      # Publish results
       - name: Save test results as artifacts
         uses: actions/upload-artifact@v4
         with:
-            name: playwright-test-results
-            path: ./playwright-report
+          name: playwright-test-results
+          path: ./playwright-report
