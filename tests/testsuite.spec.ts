@@ -9,13 +9,13 @@ import { KundvagnPage } from './pages/kundvagn-page';
 import { LeveransAdressPage} from './pages/leveransadress-page';
 
 
-/*test.beforeEach(async ({ page }) => {
+test.beforeEach(async ({ page }) => {
   const loginPage = new LoginPage(page);
   await loginPage.goto();
   await loginPage.acceptCookiesIfVisible();
   await loginPage.openLoginDropdown();
   await loginPage.performLogin(`${process.env.TEST_USERNAME}`, `${process.env.TEST_PASSWORD}`);
-});*/
+});
 
 
 
@@ -25,11 +25,7 @@ test.describe('Sonepar Login Test Suite', () => {
 
 
   test('Test Case 1: Login and Startpage Overview', async ({ page }) => {
-    const loginPage = new LoginPage(page);
-    await loginPage.goto();
-    await loginPage.acceptCookiesIfVisible();
-    await loginPage.openLoginDropdown();
-    await loginPage.performLogin(`${process.env.TEST_USERNAME}`, `${process.env.TEST_PASSWORD}`);
+
 
   //Verifiera så att det visas alla knapper efter inlogning
     const startPage = new StartPage(page);
