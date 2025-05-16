@@ -24,7 +24,7 @@ test.describe('Sonepar Login Test Suite', () => {
   });
 
 
-  test.only('Test Case 1: Login and Startpage Overview', async ({ page }) => {
+  test('Test Case 1: Login and Startpage Overview', async ({ page }) => {
    
     //Verifiera så att det visas alla knapper efter inlogning
     const startPage = new StartPage(page);
@@ -40,7 +40,7 @@ test.describe('Sonepar Login Test Suite', () => {
 });
 
 
-test.only('Test Case 2: Search for "SKRUVDRAGARE" and ensure more than 1 result', async ({ page }) => {
+test('Test Case 2: Search for "SKRUVDRAGARE" and ensure more than 1 result', async ({ page }) => {
  
     const searchPage = new SearchPage(page);
     const productPage = new ProductPage(page);
