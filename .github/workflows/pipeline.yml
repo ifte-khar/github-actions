@@ -30,6 +30,7 @@ jobs:
       # Run tests
       - name: Run tests
         env:
+            BASE_URL: https://www.elektroskandia.se/
             TEST_USERNAME: ${{ secrets.TEST_USERNAME}}
             TEST_PASSWORD: ${{ secrets.TEST_PASSWORD}}
         run: npm run run-tests
