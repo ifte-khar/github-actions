@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "server": "npx json-server s_testautomation"
+    "server": "npx json-server s_testautomation",
+    "run-tests": "npx playwright test",
+    "ui-mode": "npx playwright test --ui"
+
   },
   "keywords": [],
   "author": "",
