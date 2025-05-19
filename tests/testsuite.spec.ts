@@ -4,9 +4,9 @@ import { LoginPage } from './pages/login-page';
 import { SearchPage } from './pages/search-page';
 import { ProductPage } from './pages/product-page';
 import { SnabborderPage } from './pages/snabborder-page';
-import { OrderPage } from './pages/ordrar-page';
 import { KundvagnPage } from './pages/kundvagn-page';
 import { LeveransAdressPage} from './pages/leveransadress-page';
+import { KunduppgifterPage } from './pages/kunuppgifter-page';
 
 
 test.beforeEach(async ({ page }) => {
@@ -70,27 +70,7 @@ test('Test Case 3: Lägg till produkter i snabborder', async ({ page }) => {
 });
 
 
-
-
-test('Test case 4: Ordrar Historik', async ({ page }) => {
-    //const loginPage = new LoginPage(page);
-    const startPage = new StartPage(page);
-    const orderPage = new OrderPage(page);
-
-
-    await startPage.gotoMinaSidor();
-    await orderPage.navigateToOrders();
-
-
-    await orderPage.setStaticDateRange();
-    await orderPage.selectOrderStatus();
-    await orderPage.selectReturnOrdersOnly();
-    await orderPage.searchOrders();
-    await orderPage.verifyTotalAmountAboveOneKr();
-});
-
-
-test('Test case 5: Add product to cart and proceed to checkout', async ({ page }) => {
+test('Test case 4: Add product to cart and proceed to checkout', async ({ page }) => {
     const startPage = new StartPage(page);
     const kundvagnPage = new KundvagnPage(page);
     // Sök efter produkt
@@ -114,7 +94,7 @@ test('Test case 5: Add product to cart and proceed to checkout', async ({ page }
 });
 
 
-test('Test Case 6: Lägg till ny leveransadress', async ({ page }) => {
+test('Test Case 5: Lägg till ny leveransadress', async ({ page }) => {
  
   const startPage = new StartPage(page);
   await startPage.gotoMinaSidor();
@@ -134,4 +114,13 @@ test('Test Case 6: Lägg till ny leveransadress', async ({ page }) => {
 
 
   await deliveryAddressPage.verifyAddressSaved('testadress');
+});
+
+
+test('Test Case 6: Kunduppgifter', async ({ page }) => {
+  const startPage = new StartPage(page);
+  await startPage.gotoMinaSidor();
+
+  const kunduppgifter = new KunduppgifterPage(page);
+  await kunduppgifter.changeCustomerNumber('13047');
 });
