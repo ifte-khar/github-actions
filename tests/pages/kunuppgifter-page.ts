@@ -23,18 +23,24 @@ export class KunduppgifterPage {
 
   async changeCustomerNumber(customerNumber: string) {
     await this.minaSidorLink.click();
-    
+    await this.page.waitForLoadState('domcontentloaded');
 
     await this.minaKunduppgifterLink.click();
-  
+    await this.page.waitForLoadState('domcontentloaded');
+
+    await this.bytKundnummerButton.waitFor({ state: 'visible', timeout: 10000 });
     await this.bytKundnummerButton.click();
 
     await this.kundTextbox.waitFor({ state: 'visible', timeout: 10000 });
     await this.kundTextbox.fill(customerNumber);
 
+    await this.sokButton.waitFor({ state: 'visible', timeout: 10000 });
     await this.sokButton.click();
+
+    await this.valjButton.waitFor({ state: 'visible', timeout: 10000 });
     await this.valjButton.click();
 
+    await this.andraButton.waitFor({ state: 'visible', timeout: 10000 });
     await this.andraButton.click();
   }
 }
