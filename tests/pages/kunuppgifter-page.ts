@@ -1,6 +1,5 @@
 import { expect, type Locator, type Page } from '@playwright/test';
 
-
 export class KunduppgifterPage {
   readonly page: Page;
   readonly minaSidorLink: Locator;
@@ -24,12 +23,18 @@ export class KunduppgifterPage {
 
   async changeCustomerNumber(customerNumber: string) {
     await this.minaSidorLink.click();
+    
+
     await this.minaKunduppgifterLink.click();
+  
     await this.bytKundnummerButton.click();
-    await this.kundTextbox.click();
+
+    await this.kundTextbox.waitFor({ state: 'visible', timeout: 10000 });
     await this.kundTextbox.fill(customerNumber);
+
     await this.sokButton.click();
     await this.valjButton.click();
+
     await this.andraButton.click();
   }
 }
