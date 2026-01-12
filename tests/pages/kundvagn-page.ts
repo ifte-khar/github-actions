@@ -16,10 +16,15 @@ export class KundvagnPage {
 
 
     this.quantityDropdown = page.locator('#antalDropdown');
-    this.addToCartButton = page.getByRole('button', { name: '' });
+    //this.addToCartButton = page.getByRole('button', { name: '' });
+    this.addToCartButton = page.locator('.artikel-knapp-kundvagn');
 
 
-    this.cartLink = page.getByRole('link', { name: '' });
+
+    //this.cartLink = page.getByRole('link', { name: '' });
+    this.cartLink = page.locator('div.undermeny-kundvagn > a');
+
+
  
     this.checkoutLink = page.getByRole('link', { name: 'Till kassa' });
     this.continueButton = page.getByText('Vidare');

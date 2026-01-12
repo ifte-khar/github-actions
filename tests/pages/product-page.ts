@@ -22,7 +22,8 @@ export class ProductPage {
 
   // Wait until the container is visible
   async waitForResults() {
-    await expect(this.resultItems).toBeVisible({ timeout: 20000 });
+    //await expect(this.resultItems).toBeVisible({ timeout: 20000 });
+    await this.resultItems.first().waitFor({ state: 'visible', timeout: 20000 });
   }
 
 
